@@ -21,7 +21,8 @@ plugins:
   
   creem_subscription_group:
     default: ""
-    description: "Group name to add users to when subscription is active (e.g., 'premium')"
+    type: group
+    description: "Group to add users to when subscription is active"
   
   creem_product_id:
     default: ""
