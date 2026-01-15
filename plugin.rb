@@ -11,6 +11,13 @@ enabled_site_setting :creem_enabled
 
 register_asset "stylesheets/creem.scss"
 
+# 注册前端路由
+Discourse::Application.routes.prepend do
+  get "/creem/checkout" => "application#index"
+  get "/creem/success" => "application#index"
+  get "/creem/cancel" => "application#index"
+end
+
 after_initialize do
   module ::CreemSubscriptions
     PLUGIN_NAME = "discourse-creem-subscriptions"

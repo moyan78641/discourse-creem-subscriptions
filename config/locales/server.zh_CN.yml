@@ -1,0 +1,10 @@
+zh_CN:
+  site_settings:
+    creem_enabled: "启用 Creem 支付集成"
+    creem_test_mode: "使用 Creem 测试环境"
+    creem_api_key: "Creem API 密钥"
+    creem_webhook_secret: "Creem Webhook 签名密钥"
+    creem_subscription_group: "订阅用户加入的群组"
+    creem_product_id: "Creem 产品 ID"
+    creem_success_url: "支付成功跳转地址"
+    creem_cancel_url: "支付取消跳转地址"
