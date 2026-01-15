@@ -119,28 +119,28 @@ module CreemSubscriptions
     end
 
     def self.add_user_to_subscription_group(user)
-      group_name = SiteSetting.creem_subscription_group
-      return if group_name.blank?
+      group_id = SiteSetting.creem_subscription_group
+      return if group_id.blank? || group_id.to_i == 0
 
-      group = Group.find_by(name: group_name)
+      group = Group.find_by(id: group_id)
       return unless group
 
       unless group.users.include?(user)
         group.add(user)
-        Rails.logger.info("[Creem] Added user #{user.username} to group #{group_name}")
+        Rails.logger.info("[Creem] Added user #{user.username} to group #{group.name}")
       end
     end
 
     def self.remove_user_from_subscription_group(user)
-      group_name = SiteSetting.creem_subscription_group
-      return if group_name.blank?
+      group_id = SiteSetting.creem_subscription_group
+      return if group_id.blank? || group_id.to_i == 0
 
-      group = Group.find_by(name: group_name)
+      group = Group.find_by(id: group_id)
       return unless group
 
       if group.users.include?(user)
         group.remove(user)
-        Rails.logger.info("[Creem] Removed user #{user.username} from group #{group_name}")
+        Rails.logger.info("[Creem] Removed user #{user.username} from group #{group.name}")
       end
     end
   end
