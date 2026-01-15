@@ -21,8 +21,8 @@ after_initialize do
   require_relative "lib/creem_subscriptions/creem_api"
   require_relative "lib/creem_subscriptions/webhook_handler"
 
-  # Mount Engine for API and webhook routes
-  Discourse::Application.routes.append { mount ::CreemSubscriptions::Engine, at: "/creem" }
+  # Mount Engine at /creem-api for API routes
+  Discourse::Application.routes.append { mount ::CreemSubscriptions::Engine, at: "/creem-api" }
 
   # User custom fields
   User.register_custom_field_type("creem_subscription_id", :string)

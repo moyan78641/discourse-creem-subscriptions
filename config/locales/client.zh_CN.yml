@@ -1,0 +1,7 @@
+zh_CN:
+  js:
+    creem:
+      title: "订阅"
+      checkout: "结账"
+      success: "支付成功"
+      cancel: "支付取消"

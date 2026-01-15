@@ -1,0 +1,8 @@
+en:
+  site_settings:
+    creem_enabled: "Enable Creem payment integration"
+    creem_test_mode: "Use Creem test environment (test-api.creem.io)"
+    creem_api_key: "Creem API Key"
+    creem_webhook_secret: "Creem Webhook Secret"
+    creem_product_id: "Creem Product ID"
+    creem_subscription_group: "Group to add subscribers to"
