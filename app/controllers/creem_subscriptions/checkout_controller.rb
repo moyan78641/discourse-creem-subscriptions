@@ -3,6 +3,9 @@
 module CreemSubscriptions
   class CheckoutController < ::ApplicationController
     before_action :ensure_logged_in, except: [:success, :cancel]
+    skip_before_action :check_xhr, only: [:success, :cancel], raise: false
+    skip_before_action :preload_json, only: [:success, :cancel], raise: false
+    skip_before_action :redirect_to_login_if_required, only: [:success, :cancel], raise: false
 
     def create
       product_id = params[:product_id] || SiteSetting.creem_product_id
@@ -42,11 +45,13 @@ module CreemSubscriptions
 
     def success
       @session_id = params[:session_id]
-      render html: success_html.html_safe, layout: false
+      response.headers.delete('X-Frame-Options')
+      render plain: success_html, content_type: 'text/html'
     end
 
     def cancel
-      render html: cancel_html.html_safe, layout: false
+      response.headers.delete('X-Frame-Options')
+      render plain: cancel_html, content_type: 'text/html'
     end
 
     def subscriptions
