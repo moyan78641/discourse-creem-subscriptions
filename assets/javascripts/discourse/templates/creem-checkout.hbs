@@ -1,0 +1,14 @@
+<div class="creem-result-page">
+  <div class="creem-result-container">
+    {{#if @model.error}}
+      <div class="creem-result-icon cancel">❌</div>
+      <h1>支付发起失败</h1>
+      <p>{{@model.error}}</p>
+      <a href="/" class="btn btn-primary">返回首页</a>
+    {{else}}
+      <div class="creem-loading">
+        <p>正在跳转到支付页面...</p>
+      </div>
+    {{/if}}
+  </div>
+</div>

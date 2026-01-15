@@ -28,11 +28,8 @@ after_initialize do
 
   CreemSubscriptions::Engine.routes.draw do
     post "/webhooks" => "webhooks#handle"
-    get "/checkout" => "checkout#create"
-    get "/checkout/:product_id" => "checkout#create"
-    get "/success" => "checkout#success"
-    get "/cancel" => "checkout#cancel"
-    get "/subscriptions" => "checkout#subscriptions"
+    post "/api/checkout" => "checkout#api_checkout"
+    get "/api/subscriptions" => "checkout#subscriptions"
   end
 
   Discourse::Application.routes.append do
