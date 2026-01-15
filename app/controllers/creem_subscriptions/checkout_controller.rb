@@ -42,11 +42,11 @@ module CreemSubscriptions
 
     def success
       @session_id = params[:session_id]
-      render html: success_html.html_safe, layout: "no_ember"
+      render html: success_html.html_safe, layout: false
     end
 
     def cancel
-      render html: cancel_html.html_safe, layout: "no_ember"
+      render html: cancel_html.html_safe, layout: false
     end
 
     def subscriptions
