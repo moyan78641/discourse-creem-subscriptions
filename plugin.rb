@@ -9,7 +9,7 @@
 
 enabled_site_setting :creem_enabled
 
-register_asset "assets/stylesheets/creem.scss"
+register_asset "stylesheets/creem.scss"
 
 after_initialize do
   module ::CreemSubscriptions
