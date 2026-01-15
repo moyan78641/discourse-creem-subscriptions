@@ -11,39 +11,28 @@ enabled_site_setting :creem_enabled
 
 register_asset "stylesheets/creem.scss"
 
-# 注册前端路由
-Discourse::Application.routes.prepend do
+# Frontend routes - tell Discourse to serve the Ember app for these paths
+Discourse::Application.routes.append do
+  get "/creem" => "application#index"
   get "/creem/checkout" => "application#index"
   get "/creem/success" => "application#index"
   get "/creem/cancel" => "application#index"
 end
 
+module ::CreemSubscriptions
+  PLUGIN_NAME = "discourse-creem-subscriptions"
+end
+
+require_relative "lib/creem_subscriptions/engine"
+
 after_initialize do
-  module ::CreemSubscriptions
-    PLUGIN_NAME = "discourse-creem-subscriptions"
-
-    class Engine < ::Rails::Engine
-      engine_name PLUGIN_NAME
-      isolate_namespace CreemSubscriptions
-    end
-  end
-
   require_relative "lib/creem_subscriptions/creem_api"
   require_relative "lib/creem_subscriptions/webhook_handler"
-  require_relative "app/controllers/creem_subscriptions/webhooks_controller"
-  require_relative "app/controllers/creem_subscriptions/checkout_controller"
 
-  CreemSubscriptions::Engine.routes.draw do
-    post "/webhooks" => "webhooks#handle"
-    post "/api/checkout" => "checkout#api_checkout"
-    get "/api/subscriptions" => "checkout#subscriptions"
-  end
+  # Mount Engine for API routes at /creem-api
+  Discourse::Application.routes.append { mount ::CreemSubscriptions::Engine, at: "/creem-api" }
 
-  Discourse::Application.routes.append do
-    mount ::CreemSubscriptions::Engine, at: "/creem"
-  end
-
-  # Add user custom field for subscription status
+  # User custom fields
   User.register_custom_field_type("creem_subscription_id", :string)
   User.register_custom_field_type("creem_customer_id", :string)
   User.register_custom_field_type("creem_subscription_status", :string)
