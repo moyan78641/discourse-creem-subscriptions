@@ -11,14 +11,6 @@ enabled_site_setting :creem_enabled
 
 register_asset "stylesheets/creem.scss"
 
-# Frontend routes - tell Discourse to serve the Ember app for these paths
-Discourse::Application.routes.append do
-  get "/creem" => "application#index"
-  get "/creem/checkout" => "application#index"
-  get "/creem/success" => "application#index"
-  get "/creem/cancel" => "application#index"
-end
-
 module ::CreemSubscriptions
   PLUGIN_NAME = "discourse-creem-subscriptions"
 end
@@ -29,8 +21,8 @@ after_initialize do
   require_relative "lib/creem_subscriptions/creem_api"
   require_relative "lib/creem_subscriptions/webhook_handler"
 
-  # Mount Engine for API routes at /creem-api
-  Discourse::Application.routes.append { mount ::CreemSubscriptions::Engine, at: "/creem-api" }
+  # Mount Engine for API and webhook routes
+  Discourse::Application.routes.append { mount ::CreemSubscriptions::Engine, at: "/creem" }
 
   # User custom fields
   User.register_custom_field_type("creem_subscription_id", :string)

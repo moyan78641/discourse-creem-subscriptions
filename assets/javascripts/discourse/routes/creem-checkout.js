@@ -13,7 +13,7 @@ export default class CreemCheckoutRoute extends Route {
 
   async model() {
     try {
-      const result = await ajax("/creem-api/checkout", { type: "POST" });
+      const result = await ajax("/creem/api/checkout", { type: "POST" });
       if (result.checkout_url) {
         window.location.href = result.checkout_url;
         return { redirecting: true };

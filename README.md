@@ -29,7 +29,7 @@ Then rebuild: `./launcher rebuild app`
 ## Webhook Setup
 
 Configure webhook in Creem Dashboard:
-- URL: `https://your-site.com/creem-api/webhooks`
+- URL: `https://your-site.com/creem/webhooks`
 - Events: `checkout.completed`, `subscription.active`, `subscription.paid`, `subscription.canceled`, `subscription.expired`
 
 ## Usage
@@ -38,10 +38,12 @@ Direct users to `/creem/checkout` to start the subscription flow.
 
 ## Routes
 
+- `/creem` - Main page
 - `/creem/checkout` - Start checkout (redirects to Creem)
 - `/creem/success` - Payment success page
 - `/creem/cancel` - Payment cancelled page
-- `/creem-api/webhooks` - Webhook endpoint
+- `/creem/webhooks` - Webhook endpoint (POST)
+- `/creem/api/checkout` - Checkout API (POST)
 
 ## Test Mode
 
