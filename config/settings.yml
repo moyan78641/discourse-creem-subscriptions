@@ -1,0 +1,36 @@
+plugins:
+  creem_enabled:
+    default: false
+    client: true
+    description: "Enable Creem payment integration"
+  
+  creem_test_mode:
+    default: true
+    client: true
+    description: "Use Creem test environment (test-api.creem.io)"
+  
+  creem_api_key:
+    default: ""
+    secret: true
+    description: "Creem API Key (from Dashboard > Developers)"
+  
+  creem_webhook_secret:
+    default: ""
+    secret: true
+    description: "Creem Webhook Secret for signature verification"
+  
+  creem_subscription_group:
+    default: ""
+    description: "Group name to add users to when subscription is active (e.g., 'premium')"
+  
+  creem_product_id:
+    default: ""
+    description: "Creem Product ID for subscription"
+  
+  creem_success_url:
+    default: "/creem/success"
+    description: "Redirect URL after successful payment"
+  
+  creem_cancel_url:
+    default: "/creem/cancel"
+    description: "Redirect URL when payment is cancelled"
