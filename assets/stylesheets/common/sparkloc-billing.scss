@@ -1,0 +1,165 @@
+.sparkloc-modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.sparkloc-modal {
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  background: var(--secondary);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+
+  p {
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+}
+
+.sparkloc-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.sparkloc-guide-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: var(--tertiary-very-low, var(--primary-very-low));
+  border: 1px solid var(--tertiary-low, var(--primary-low));
+  border-radius: 8px;
+
+  > .svg-icon {
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+    color: var(--tertiary);
+    flex-shrink: 0;
+  }
+}
+
+.guide-content {
+  flex: 1;
+
+  h3 {
+    margin: 0 0 4px;
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 0 0 10px;
+    color: var(--primary-medium);
+    line-height: 1.4;
+    font-size: 0.9em;
+  }
+
+  .btn .svg-icon {
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+  }
+}
+
+.sparkloc-billing-page {
+  max-width: 600px;
+  padding: 20px 0;
+
+  h2 {
+    margin-bottom: 16px;
+  }
+}
+
+.billing-message {
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.9em;
+
+  &.success {
+    background: var(--success-low);
+    border: 1px solid var(--success-medium);
+    color: var(--success);
+  }
+
+  &.error {
+    background: var(--danger-low);
+    border: 1px solid var(--danger-medium);
+    color: var(--danger);
+  }
+}
+
+.billing-card {
+  padding: 20px;
+  background: var(--secondary);
+  border: 1px solid var(--primary-low);
+  border-radius: 8px;
+}
+
+.billing-desc {
+  margin: 0 0 16px;
+  color: var(--primary-medium);
+}
+
+.billing-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+
+  .status-label {
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+
+  .status-value {
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 500;
+
+    &.active {
+      background: var(--success-low);
+      color: var(--success);
+    }
+
+    &.canceled {
+      background: var(--highlight-low);
+      color: var(--highlight);
+    }
+
+    &.terminated {
+      background: var(--danger-low);
+      color: var(--danger);
+    }
+  }
+}
+
+.billing-period {
+  margin-bottom: 16px;
+  font-size: 0.9em;
+
+  .period-label {
+    margin-right: 6px;
+    font-weight: bold;
+  }
+}
+
+.billing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
