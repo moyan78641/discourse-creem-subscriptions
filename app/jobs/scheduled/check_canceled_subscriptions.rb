@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Jobs
-  class SparklocBillingCheckCanceledSubscriptions < ::Jobs::Scheduled
+  class CheckCanceledSubscriptions < ::Jobs::Scheduled
     every 1.hour
     CREEM_SYNC_GRACE_PERIOD = 30.minutes
 
