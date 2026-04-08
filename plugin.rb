@@ -21,7 +21,4 @@ after_initialize do
   register_svg_icon "credit-card"
   register_svg_icon "book"
   register_svg_icon "external-link-alt"
-
-  plugin_root = File.dirname(__FILE__)
-  require File.join(plugin_root, "app", "jobs", "scheduled", "sparkloc_billing_check_canceled_subscriptions")
 end
